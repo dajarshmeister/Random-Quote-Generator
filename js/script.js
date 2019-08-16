@@ -15,6 +15,8 @@ project 1 - A Random Quote Generator
   Use console.log() to log your array of quotes to the console.
 ***/
 
+// Creates a list of quotes with various information
+
 var quotes = [
   {
     quote:'It\'s over 9000!',
@@ -45,6 +47,8 @@ var quotes = [
   }
 ];
 
+// Logs the quotes array to the console
+
 console.log(quotes);
 
 
@@ -53,6 +57,8 @@ console.log(quotes);
    - Create a variable to store a random number 
    - Use the random number to `return` a random quote object from the `quotes` array.
 ***/
+
+// Selects a random object from the quotes array
 
 function getRandomQuote () {
   var randNum = Math.floor(Math.random() * quotes.length);
@@ -73,10 +79,14 @@ function getRandomQuote () {
    - Set the `innerHTML` of the `quote-box` div to the HTML string. 
 ***/
 
+// Generates a random number to be used when updating background color of page
+
 function changeBgColor (){
   var randColor = Math.floor(Math.random() * (150 - 0) );
   return randColor;
 }
+
+// Once called prints the quote to the page and changes the background color to a random color
 
 function printQuote () {
   document.body.style.backgroundColor = 'rgb(' + changeBgColor() + ',' + changeBgColor() + ',' + changeBgColor() + ')';;
@@ -100,6 +110,9 @@ function printQuote () {
   document.getElementById('quote-box').innerHTML = message;
 }
 
+// Changes the quote and background color every 5 seconds
+
+setInterval(function(){printQuote()}, 5000);
 
 /***
   When the "Show another quote" button is clicked, the event listener 
