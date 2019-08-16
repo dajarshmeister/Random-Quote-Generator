@@ -56,6 +56,7 @@ function changeBgColor (){
 // Once called prints the quote to the page and changes the background color to a random color
 
 function printQuote () {
+
   document.body.style.backgroundColor = 'rgb(' + changeBgColor() + ',' + changeBgColor() + ',' + changeBgColor() + ')';;
   var randomQoute = getRandomQuote();
   var message = '';
@@ -74,12 +75,21 @@ function printQuote () {
   }
 
   document.getElementById('quote-box').innerHTML = message;
+
 }
 
-// Changes the quote and background color every 5 seconds
+// Fires the print quote function at a set interval
 
-setInterval(function(){printQuote()}, 5000);
+var interval = setInterval(function(){printQuote()}, 5000);
+
+function resetTimer(){
+  clearInterval(interval);
+  interval = setInterval(function(){printQuote()}, 5000);
+}
 
 // When a user clicks the Show another quote button the quote on the page will change
 
-document.getElementById('loadQuote').addEventListener("click", printQuote, false);
+document.getElementById("loadQuote").addEventListener("click", function(){
+  printQuote();
+  resetTimer();
+});
