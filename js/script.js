@@ -18,25 +18,30 @@ project 1 - A Random Quote Generator
 var quotes = [
   {
     quote:'It\'s over 9000!',
-    source:'Vegeta'
+    source:'Vegeta',
+    tags: 'Cartoon, power level, super saiyan'
   },
   {
     quote:'Ooh, she made us drinks to drink We drunk \'em, got drunk And then I think she thinks I\'m cool...',
     source:'T-Pain',
-    year: 2007
+    year: 2007,
+    tags: 'Music, auto-tune'
   },
   {
     quote:'Where\'s the lamb sauce!?',
     source:'Gordon Ramsay',
-    citation: 'https://www.youtube.com/watch?v=-rLtbtvR9lg'
+    citation: 'Youtube',
+    tags: 'Television, mean, yelling'
   },
   {
     quote:'I don\'t need it. I don\'t need it. I definitely don\'t need it. I don\'t need it. I don\'t need it. I don\'t need it. I don\'t need it. I... need... it!',
     source:'Spongebob Squarepants',
+    tags: 'Cartoon, funny, yellow'
   },
   {
     quote:'Every man must decide whether he will walk in the light of creative altruism or in the darkness of destructive selfishness. ',
     source:'Martin Luther King Jr.',
+    tags: 'Politics'
   }
 ];
 
@@ -69,7 +74,7 @@ function getRandomQuote () {
 ***/
 
 function changeBgColor (){
-  var randColor = Math.floor(Math.random() * (255 - 0) );
+  var randColor = Math.floor(Math.random() * (150 - 0) );
   return randColor;
 }
 
@@ -78,13 +83,20 @@ function printQuote () {
   var randomQoute = getRandomQuote();
   var message = '';
   message += `<p class="quote">${randomQoute.quote}</p>`
-  message += `<p class="source">${randomQoute.source}</p>`
+  message += `<p class="source">${randomQoute.source}`;
   if(randomQoute.citation){
-    message+= `<p class="citation">${randomQoute.citation}</p>`
+    message+= `<span class="citation">${randomQoute.citation}</span>`;
   }
-  if(randomQoute.year){
-    message+= `<p class="year">${randomQoute.year}</p>`
+  else if(randomQoute.year){
+    message+= `<span class="year">${randomQoute.year}</span>`;
   }
+  message += `</p>`;
+
+  if(randomQoute.tags){
+    message+= `<p class="tags">Tags: <i>${randomQoute.tags}</i></p>`;
+  }
+
+
   document.getElementById('quote-box').innerHTML = message;
 }
 

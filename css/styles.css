@@ -53,6 +53,13 @@ body {
   margin-right: 4em;
 }
 
+.tags {
+  letter-spacing: 0.05em;
+  line-height: 1.1;
+  text-align: right;
+  margin-right: 5em;
+}
+
 .source:before {
   content: "—";
 }
@@ -81,12 +88,12 @@ body {
   border-radius: 4px;
   border: 2px solid #fff;
   color: #fff;
-  background-color: #36b55c;
+  background-color: rgba(255, 255, 255, 0.2);;
   padding: 15px 0;
   transition: .5s ;
 }
 #loadQuote:hover {
-  background-color: rgba(255,255,255,.25);
+  background-color: rgba(255,255,255,.3);
 }
 
 #loadQuote:focus {
@@ -100,7 +107,11 @@ body {
   .quote:before, .quote:after {
     font-size: 6rem;
   }
-  .source {
+  .source  {
     font-size: 1.25rem;
+  }
+
+  .tags {
+    font-size: 1rem;
   }
 }
