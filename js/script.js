@@ -21,7 +21,7 @@ var quotes = [
     source:'Vegeta'
   },
   {
-    quote:'Ooh, she made us drinks to drink We drunk \'em, got drunk And then I think she thinks I\'m cool She gave me a wink, I winked back And then I think that we hit it off something proper like...',
+    quote:'Ooh, she made us drinks to drink We drunk \'em, got drunk And then I think she thinks I\'m cool...',
     source:'T-Pain',
     year: 2007
   },
@@ -46,10 +46,13 @@ console.log(quotes);
 /***
   Create the `getRandomQuote` function to:
    - Create a variable to store a random number 
-   - Cse the random number to `return` a random quote object from the `quotes` array.
+   - Use the random number to `return` a random quote object from the `quotes` array.
 ***/
 
-
+function getRandomQuote () {
+  var randNum = Math.floor(Math.random() * quotes.length);
+  return quotes[randNum];
+}
 
 
 /***
@@ -65,7 +68,25 @@ console.log(quotes);
    - Set the `innerHTML` of the `quote-box` div to the HTML string. 
 ***/
 
+function changeBgColor (){
+  var randColor = Math.floor(Math.random() * (255 - 0) );
+  return randColor;
+}
 
+function printQuote () {
+  document.body.style.backgroundColor = 'rgb(' + changeBgColor() + ',' + changeBgColor() + ',' + changeBgColor() + ')';;
+  var randomQoute = getRandomQuote();
+  var message = '';
+  message += `<p class="quote">${randomQoute.quote}</p>`
+  message += `<p class="source">${randomQoute.source}</p>`
+  if(randomQoute.citation){
+    message+= `<p class="citation">${randomQoute.citation}</p>`
+  }
+  if(randomQoute.year){
+    message+= `<p class="year">${randomQoute.year}</p>`
+  }
+  document.getElementById('quote-box').innerHTML = message;
+}
 
 
 /***
