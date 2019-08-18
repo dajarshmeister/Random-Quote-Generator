@@ -35,10 +35,6 @@ var quotes = [
   }
 ];
 
-// Logs the quotes array to the console
-
-console.log(quotes);
-
 // Selects a random object from the quotes array
 
 function getRandomQuote () {
